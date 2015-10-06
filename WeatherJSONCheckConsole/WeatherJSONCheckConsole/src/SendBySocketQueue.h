@@ -34,7 +34,7 @@ namespace LobKo {
 };
 
 int LobKo::SendBySocketQueue::getQueueSize() const {
-    return map_.size();
+    return (int)map_.size();
 };
 #endif	/* SENDBYSOCKETQUEUE_H */
 

@@ -28,7 +28,7 @@ namespace LobKo {
         std::list<shared_ptr<HTTPRequest> >& getContainer();
 
         uint32_t size() const {
-            return list_.size();
+            return (unsigned int)list_.size();
         }
     private:
         HTTPRequestErrorsQueue(const HTTPRequestErrorsQueue& orig);

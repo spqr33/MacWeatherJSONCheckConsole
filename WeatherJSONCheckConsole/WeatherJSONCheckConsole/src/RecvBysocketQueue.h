@@ -55,7 +55,7 @@ unsigned int LobKo::RecvBySocketQueue::getSystemRCVBUF_Size(int socketFd) const 
 };
 
 int LobKo::RecvBySocketQueue::getQueueSize() const {
-    return map_.size();
+    return (int)map_.size();
 };
 #endif	/* RECVBYSOCKETQUEUE_H */
 

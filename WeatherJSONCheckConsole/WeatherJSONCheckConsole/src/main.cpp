@@ -6,19 +6,19 @@
  */
 
 #include <cstdlib>
-#include "utils.h"
-#include "IPAdress.h"
-#include "URL.h"
+#include "src/utils.h"
+#include "src/IPAdress.h"
+#include "src/URL.h"
 #include <string>
 #include <utility> //pair
 #include <memory>
 #include <iostream>
-#include <bits/shared_ptr_base.h>
-#include "HTTPRequest.h"
-#include "QueuesMaster.h"
-#include "TaskHolder.h"
+//#include <bits/shared_ptr_base.h>
+#include "src/HTTPRequest.h"
+#include "src/QueuesMaster.h"
+#include "src/TaskHolder.h"
 #include <fstream>
-#include "HTTPRequestErrorsQueue.h"
+#include "src/HTTPRequestErrorsQueue.h"
 #include <stdlib.h> // atoi
 
 using namespace std;
@@ -43,20 +43,20 @@ int main(int argc, char** argv) {
         simultaneous_download_number = simultaneous_download_max;
     }
 
-    std::ifstream dataFile(argv[2]);
+    ifstream dataFile(argv[2]);
     if ( !dataFile.is_open() ) {
         std::cerr << "File \"" << argv[2] << "\" can't be opened." << std::endl;
         return EXIT_FAILURE;
     }
-    shared_ptr<TaskHolder> spTaskHolder = TaskHolderBuilder::build(dataFile);
-    dataFile.clear();
-    dataFile.close();
-
-    QueuesMaster qmaster(spTaskHolder);
-    qmaster.process(simultaneous_download_number);
-
-    HTTPRequestErrorsQueue& eq = *qmaster.reqErrorsQ().get();
-    cerr << eq << std::endl;
+    std::shared_ptr<TaskHolder> spTaskHolder = TaskHolderBuilder::build(dataFile);
+//    dataFile.clear();
+//    dataFile.close();
+//
+//    QueuesMaster qmaster(spTaskHolder);
+//    qmaster.process(simultaneous_download_number);
+//
+//    HTTPRequestErrorsQueue& eq = *qmaster.reqErrorsQ().get();
+//    cerr << eq << std::endl;
 
     return EXIT_SUCCESS;
 }

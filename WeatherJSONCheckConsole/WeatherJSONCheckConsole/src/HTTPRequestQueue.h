@@ -42,7 +42,7 @@ namespace LobKo {
 };
 
 int LobKo::HTTPRequestQueue::getQueueSize() const {
-    return queue_.size();
+    return (int)queue_.size();
 }
 #endif	/* HTTPREQUESTQUEUE_H */
 

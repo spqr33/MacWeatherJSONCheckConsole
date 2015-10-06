@@ -11,7 +11,7 @@
 #include <string>
 #include <cassert>
 #include <map>
-#include <cstdint>
+#include <stdint.h>
 #include <stdexcept>
 #include <sstream>
 #include <arpa/inet.h>   //htons
@@ -23,7 +23,7 @@ using std::map;
 namespace LobKo {
 
     class URL {
-        friend std::ostream& LobKo::operator<<(std::ostream& out, const URL& url);
+        friend std::ostream& operator<<(std::ostream& out, const URL& url);
     public:
 
         enum Default {

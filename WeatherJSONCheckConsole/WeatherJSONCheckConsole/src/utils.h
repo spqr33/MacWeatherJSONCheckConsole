@@ -14,6 +14,7 @@
 #include "IPAdress.h"
 
 using std::string;
+using std::shared_ptr;
 
 namespace LobKo {
 
