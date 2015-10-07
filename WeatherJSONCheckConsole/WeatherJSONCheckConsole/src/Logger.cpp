@@ -7,6 +7,11 @@
 //
 #include "Logger.h"
 #include "iostream"
+
+#include <ctime>
+#include <ratio>
+#include <chrono>
+
 namespace LobKo {
 //Static
     std::map<std::string, std::shared_ptr<File>> Logger::files_;
@@ -37,10 +42,15 @@ namespace LobKo {
             files_.erase(spFile_->fileName_);
         }
     }
-    
+
     void Logger::write_line(std::string& line)
     {
+        std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+        time_t tt = std::chrono::system_clock::to_time_t ( now );
+        std::string strTime = ctime(&tt);
+        strTime[strTime.size()-1] = ' ';
+        
         std::lock_guard<std::mutex> lock(spFile_->mutexFile_);
-        spFile_->file_ << line << std::endl;
+        spFile_->file_ << strTime << " || " << line << std::endl;
     }
 } //end namespace

@@ -30,6 +30,7 @@ namespace LobKo {
      
         //std::uint64_t       alreadyBytesSaved_;
         std::vector<char>   buffer_;
+        Logger              log_;
     };
  
     

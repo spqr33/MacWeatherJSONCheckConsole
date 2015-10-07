@@ -11,37 +11,36 @@
 #include <iterator>
 #include "picojson.h"
 
+
 namespace LobKo{
     
-    JSONParseLog::JSONParseLog(Logger& log)     {
+    JSONParseLog::JSONParseLog(Logger& log) :
+    log_(log){
         buffer_.reserve(128);
     }
     
      Action::result JSONParseLog::takeData(const char* const startBuf, const char* const endBuf, uint64_t totalDataSize) {
         
-        std::copy(startBuf, endBuf, std::back_inserter(buffer_));
-         for(auto x :buffer_) {
-             std::cout << x;
+         std::copy(startBuf, endBuf, std::back_inserter(buffer_));
+         
+         std::string strLog(startBuf, endBuf);
+         log_.write_line(strLog);
+         
+         picojson::value v;
+         std::string     err;
+         picojson::parse(v, buffer_.data(), buffer_.data()+buffer_.size(), &err);
+         
+         if ( !err.empty() ) {
+             //Log error
+             
+         } else if ( !v.is<picojson::object>() ) {
+             //Log error
+         } else {
+             std::string indent("");
+             JSONParseAndFill(v.get<picojson::object>(), indent);
          }
-         std::cout << "Log this =)" << std::endl;
-        
-            //LOG!!
-            picojson::value v;
-            std::string     err;
-            picojson::parse(v, buffer_.data(), buffer_.data()+buffer_.size(), &err);
-            
-            if ( !err.empty() ) {
-                //Log error
-                
-            } else if ( !v.is<picojson::object>() ) {
-                //Log error
-            } else {
-                std::string indent("");
-                JSONParseAndFill(v.get<picojson::object>(), indent);
-            }
-            return Action::ALL_DATA_RCVD;
-        //}
-    }
+         return Action::ALL_DATA_RCVD;
+     }
     
     void JSONParseLog::JSONParseAndFill(picojson::value::object &obj, std::string indent)
     {
