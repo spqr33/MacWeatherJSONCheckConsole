@@ -26,6 +26,14 @@ recvQueue_(new RecvBySocketQueue(this)) {
     loadTasks(spTaskHolder);
 }
 
+LobKo::QueuesMaster::QueuesMaster() :
+reqQueue_(new HTTPRequestQueue(this)),
+errQueue_(new HTTPRequestErrorsQueue),
+sendQueue_(new SendBySocketQueue(this)),
+recvQueue_(new RecvBySocketQueue(this)) {
+    
+}
+
 LobKo::QueuesMaster::~QueuesMaster() {
     ;
 }
@@ -55,6 +63,11 @@ void LobKo::QueuesMaster::loadTasks(shared_ptr<TaskHolder> spTaskHolder) {
             }
         }
     }
+}
+
+void LobKo::QueuesMaster::setHTTPRequest(shared_ptr<HTTPRequest> initialisationHTTPRequest) {
+    initialisationHTTPRequest_ = initialisationHTTPRequest;
+    reqQueue_->add(initialisationHTTPRequest_);
 }
 
 void LobKo::QueuesMaster::process(int simultaneous_resources_recvng) {

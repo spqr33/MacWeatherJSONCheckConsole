@@ -49,8 +49,8 @@ void LobKo::SendBySocketQueue::process() {
             } else {
                 int socketFD = iterMap->first;
                 shared_ptr<HTTPRequest> spHTTPRequest = q.front();
-                int writedBytes = 0;
-                int needToWriteBytes = spHTTPRequest->getResultString().size() - spHTTPRequest->bytesSent();
+                long writedBytes = 0;
+                long needToWriteBytes = spHTTPRequest->getResultString().size() - spHTTPRequest->bytesSent();
 
                 writedBytes = writeToSocket(socketFD, spHTTPRequest->getResultString().c_str(), needToWriteBytes);
                 if ( writedBytes < 0 ) {
@@ -58,11 +58,11 @@ void LobKo::SendBySocketQueue::process() {
                     qMaster_.reqErrorsQ()->add(spHTTPRequest);
                     q.pop();
                 } else if ( writedBytes < needToWriteBytes ) {
-                    spHTTPRequest->setBytesSent(spHTTPRequest->bytesSent() + writedBytes);
+                    spHTTPRequest->setBytesSent(int(spHTTPRequest->bytesSent() + writedBytes));
                     //cleanup? - no.
                     continue; // loop on map_
                 } else { //sent all of the data
-                    spHTTPRequest->setBytesSent(spHTTPRequest->getResultString().size());
+                    spHTTPRequest->setBytesSent((int)spHTTPRequest->getResultString().size());
 
 
                     shared_ptr<HTTPResponse> spResponse(new HTTPResponse(spHTTPRequest));
@@ -88,8 +88,11 @@ int LobKo::SendBySocketQueue::writeToSocket(int socketFD, const char* begin, siz
     assert((begin != NULL) && " SendBySocketQueue::writeToSocket, Zero pointer\n ");
     assert((socketFD > 0) && " SendBySocketQueue::writeToSocket, socketFD < 0\n ");
     ssize_t writedBytes = 0;
+    
+    std::string tmp(begin, n);
+    std::cout << "Write to socket this: " << tmp <<"|\n";
 
     writedBytes = write(socketFD, begin, n);
 
-    return writedBytes;
+    return (int)writedBytes;
 }

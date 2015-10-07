@@ -24,6 +24,8 @@ shared_ptr<LobKo::AHeader> LobKo::AHeader::makeHeader(const string& name, const 
     if ( name == "Content-Length" ) {
         return shared_ptr<AHeader>(new Content_Length(name, value));
     }
+    
+    return shared_ptr<AHeader>(new HostHeader(name, value));
 }
 
 const string& LobKo::AHeader::getName() const {

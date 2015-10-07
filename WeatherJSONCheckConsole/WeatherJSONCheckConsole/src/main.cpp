@@ -6,58 +6,73 @@
  */
 
 #include <cstdlib>
-#include "src/utils.h"
-#include "src/IPAdress.h"
-#include "src/URL.h"
+#include "utils.h"
+#include "IPAdress.h"
+#include "URL.h"
 #include <string>
 #include <utility> //pair
 #include <memory>
 #include <iostream>
 //#include <bits/shared_ptr_base.h>
-#include "src/HTTPRequest.h"
-#include "src/QueuesMaster.h"
-#include "src/TaskHolder.h"
+#include "HTTPRequest.h"
+#include "QueuesMaster.h"
+#include "TaskHolder.h"
 #include <fstream>
-#include "src/HTTPRequestErrorsQueue.h"
+#include "HTTPRequestErrorsQueue.h"
 #include <stdlib.h> // atoi
+#include "Logger.h"
+#include "JSONParseLog.h"
 
 using namespace std;
 using namespace LobKo;
 
-using std::string;
 
 /*
  * 
  */
 int main(int argc, char** argv) {
     ////////////////////////////////////
-    if ( argc < 3 ) {
-        std::cerr << " Usage:\t\t " << argv[0] << "\t    simultaneous_downloads\t" << " /path/to/taskFile" << std::endl;
-        return EXIT_FAILURE;
-    }
-    const int simultaneous_download_max = 10;
-    int simultaneous_download_number = ::atoi(argv[1]);
-    ;
+    const int simultaneous_download_max = 1;
 
-    if ( simultaneous_download_number <= 0 || simultaneous_download_number > simultaneous_download_max ) {
-        simultaneous_download_number = simultaneous_download_max;
-    }
+    string logName("log.txt");
+    Logger log(logName);
+    QueuesMaster qmaster;
 
-    ifstream dataFile(argv[2]);
-    if ( !dataFile.is_open() ) {
-        std::cerr << "File \"" << argv[2] << "\" can't be opened." << std::endl;
-        return EXIT_FAILURE;
-    }
-    std::shared_ptr<TaskHolder> spTaskHolder = TaskHolderBuilder::build(dataFile);
-//    dataFile.clear();
-//    dataFile.close();
-//
-//    QueuesMaster qmaster(spTaskHolder);
-//    qmaster.process(simultaneous_download_number);
-//
-//    HTTPRequestErrorsQueue& eq = *qmaster.reqErrorsQ().get();
-//    cerr << eq << std::endl;
 
+    HTTPRequestErrorsQueue& eq = *qmaster.reqErrorsQ().get();
+    cerr << eq << std::endl;
+
+//////////////
+//API const
+    const string hostname = "api.openweathermap.org";
+    const string urlRoot = "http://api.openweathermap.org/";
+    const string weatherQuery = "data/2.5/weather/?q=";
+    const string weatherImgQuery = "img/w/";
+    const string imgExtention = ".png";
+
+ 
+    //
+    string cityName;
+    while (true) {
+        cout << "Please, enter a city name, or type exit" << endl;
+        cin >> cityName;
+        if ( cityName == "exit" ) {
+            break;
+        }
+        shared_ptr<URL>         spWeatherUrl(new URL(urlRoot + weatherQuery + cityName));
+        shared_ptr<HTTPRequest> request(new HTTPRequest(HTTPRequestType(HTTPRequestType::GET),
+                                                        spWeatherUrl,
+                                                        HTTPProto(HTTPProto::HTTP1_0))
+                                        );
+        std::cout << spWeatherUrl->originalRequestString();
+        request->setAction(std::make_shared<JSONParseLog>(log));
+       
+        qmaster.setHTTPRequest(request);
+        qmaster.process(simultaneous_download_max);
+        
+        cout << "Processing finished" << endl;
+}
+    
     return EXIT_SUCCESS;
 }
 

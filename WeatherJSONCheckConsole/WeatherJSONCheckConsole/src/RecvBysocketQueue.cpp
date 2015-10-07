@@ -53,12 +53,12 @@ void LobKo::RecvBySocketQueue::process() {
                 int readBytesfromSock;
                 const char* const buff = spHTTPResp->getJumboBuff()->watermark_;
 
-                int canReadBytes = spHTTPResp->getJumboBuff()->start_ + spHTTPResp->getJumboBuff()->buffSize_ - buff;
+                long canReadBytes = spHTTPResp->getJumboBuff()->start_ + spHTTPResp->getJumboBuff()->buffSize_ - buff;
                 if ( canReadBytes == 0 ) {
                     //Buffer is full. It is necessary to process it or reinit. **
                 };
 
-                readBytesfromSock = this->readFromSocket(socketFD, buff, canReadBytes);
+                readBytesfromSock = this->readFromSocket(socketFD, buff, (int)canReadBytes);
 
                 if ( readBytesfromSock < 0 ) {
 #ifndef NDEBUG
@@ -150,13 +150,16 @@ void LobKo::RecvBySocketQueue::process() {
 #ifndef NDEBUG
                         std::cout << "Headers parsing finished" << std::endl;
 #endif                         
-                        if ( spHTTPResp->get_status_code() == "200" && spHTTPResp->spContent_Length.use_count() != 0 ) {
+                        if ( spHTTPResp->get_status_code() == "200" /*&& spHTTPResp->spContent_Length.use_count() != 0 */) {
+                            
+                            std::cout << "We are here\n";
+                            
                             shared_ptr<Action> spAction = spHTTPResp->getLinkedHTTPRequest()->getAction();
                             Action::result action_res;
 
                             action_res = spAction->takeData(spHTTPResp->getJumboBuff()->currentPos_,
-                                    spHTTPResp->getJumboBuff()->watermark_,
-                                    spHTTPResp->spContent_Length->getValueAsDecimalNumber());
+                                                            spHTTPResp->getJumboBuff()->watermark_, 0);
+                                   // spHTTPResp->spContent_Length->getValueAsDecimalNumber());
 
                             if ( action_res == Action::result::ERROR_OCCURED ) {
 #ifndef NDEBUG
@@ -209,5 +212,5 @@ int LobKo::RecvBySocketQueue::readFromSocket(int socketFD, const char* buff, int
 
     readBytes = read(socketFD, const_cast<char*> (buff), buffSize);
 
-    return readBytes;
+    return (int)readBytes;
 }

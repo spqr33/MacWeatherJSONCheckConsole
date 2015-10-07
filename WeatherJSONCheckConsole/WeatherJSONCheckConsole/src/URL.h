@@ -36,6 +36,7 @@ namespace LobKo {
         const string& getPath() const;
         const uint16_t& getPort() const;
         inline const string& originalRequestString() const;
+
     private:
         URL(const URL& orig);
         
@@ -49,16 +50,18 @@ namespace LobKo {
 
         class QuerySring {
         public:
-            //QuerySring(const string& query_string);
-
-            QuerySring() {
-            };
-            ~QuerySring();
-            const string& getQuery() const;
+            QuerySring(const string& query_string):
+            full_query_string_(query_string) {}
+            QuerySring() {}
+            ~QuerySring() {}
+            const string& getQuery() const { return full_query_string_; }
         private:
             string full_query_string_;
             map<string, string> data_; //name value
-        } *query_string_; //todo
+        } query_string_; //todo
+    public:
+        inline const URL::QuerySring& getQueryStr() const;
+    private:
         string fragment_id; //todo
     
         inline bool isAllowedSymb(char c) const;
@@ -130,6 +133,10 @@ namespace LobKo {
 
     const string& LobKo::URL::originalRequestString() const {
         return original_request_string_;
+    }
+    
+    const LobKo::URL::QuerySring& LobKo::URL::getQueryStr() const {
+        return query_string_;
     }
 };
 #endif	/* URL_H */

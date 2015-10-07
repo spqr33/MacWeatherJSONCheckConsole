@@ -18,7 +18,7 @@ LobKo::HTTPRequestErrorsQueue::~HTTPRequestErrorsQueue() {
 }
 
 void LobKo::HTTPRequestErrorsQueue::add(shared_ptr<HTTPRequest> sp) {
-    int size = list_.size();
+    long size = list_.size();
 
     if ( size == maxSize_ ) {
         list_.erase(list_.begin());

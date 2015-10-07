@@ -9,6 +9,7 @@
 #include <utility>
 #include <sys/types.h>          /* See NOTES */
 #include <sys/socket.h>
+#include <unistd.h>
 #include <strings.h> // bzero
 
 LobKo::HTTPRequestQueue::HTTPRequestQueue(QueuesMaster* qmaster) :

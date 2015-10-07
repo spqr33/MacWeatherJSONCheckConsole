@@ -28,7 +28,8 @@ LobKo::DomainNameResolver::operator ()(const string& host) {
 
         while (*pp_in_addr_list != NULL) {
             char buff[INET_ADDRSTRLEN + 1];
-            const char *c = inet_ntop(AF_INET, *(pp_in_addr_list), buff, INET_ADDRSTRLEN + 1);
+            //const char *c =
+            inet_ntop(AF_INET, *(pp_in_addr_list), buff, INET_ADDRSTRLEN + 1);
 
             cout << buff << " ";
             pp_in_addr_list++;

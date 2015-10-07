@@ -25,10 +25,12 @@ namespace LobKo {
     class QueuesMaster {
     public:
         QueuesMaster(shared_ptr<HTTPRequest> initialisationHTTPRequest);
-        QueuesMaster(shared_ptr<TaskHolder> spTaskHolder);
+        explicit QueuesMaster(shared_ptr<TaskHolder> spTaskHolder);
+        QueuesMaster();
         ~QueuesMaster();
 
         void loadTasks(shared_ptr<TaskHolder> sp);
+        void setHTTPRequest(shared_ptr<HTTPRequest> initialisationHTTPRequest);
 
         void process(int simultaneous_resources_recvng = 3);
         inline shared_ptr<HTTPRequestQueue> requestQ();

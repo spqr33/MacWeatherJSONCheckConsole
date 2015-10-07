@@ -39,7 +39,7 @@ std::ostream& LobKo::operator<<(std::ostream& out, IPAdress& ipAdress) {
     std::list<struct in_addr>::iterator IterEND = ipAdress.list_in_addr_.end();
 
     out << "Recors count: " << ipAdress.list_in_addr_.size() << std::endl;
-    for (; Iter != ipAdress.list_in_addr_.end(); ) {
+    for (; Iter != IterEND; ) {
         in_addr_t i = (*Iter).s_addr;
         out << i << std::endl;
         ++Iter;

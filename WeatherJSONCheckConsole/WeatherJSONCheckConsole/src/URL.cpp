@@ -222,6 +222,7 @@ original_request_string_(original_string) {
     //todo: fill
     //LobKo::QuerySring query_string_;
     //string fragment_id;
+    query_string_ = std::string(p2);
 }
 
 LobKo::URL::~URL() {

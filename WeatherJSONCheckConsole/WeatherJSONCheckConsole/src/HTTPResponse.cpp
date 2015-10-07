@@ -191,7 +191,7 @@ LobKo::HTTPResponse::parseStatus LobKo::HTTPResponse::parseResponseLine() {
             case state_parse_response_line_proto_code_reason:
                 if ( isAllowedReasonPhraseSymb(ch) ) {
                     ;
-                } else if ( ch = SymbolCode::CR ) {
+                } else if ( ch == SymbolCode::CR ) {
                     parse_response_line_state = state_parse_response_line_proto_code_reason_CR;
 
                     if ( p_reason_phrase_ < cur_pos ) {
@@ -199,7 +199,7 @@ LobKo::HTTPResponse::parseStatus LobKo::HTTPResponse::parseResponseLine() {
                     } else {
                         reason_phrase_.append(std::string(spJumboBuff_->start_, cur_pos - spJumboBuff_->start_));
                     };
-                } else if ( ch = SymbolCode::LF ) {
+                } else if ( ch == SymbolCode::LF ) {
                     parse_response_line_state = state_parse_response_line_proto_code_reason_LF;
 
                     if ( p_reason_phrase_ < cur_pos ) {
@@ -212,7 +212,7 @@ LobKo::HTTPResponse::parseStatus LobKo::HTTPResponse::parseResponseLine() {
                 }
                 break;
             case state_parse_response_line_proto_code_reason_CR:
-                if ( ch = SymbolCode::LF ) {
+                if ( ch == SymbolCode::LF ) {
                     parse_response_line_state = state_parse_response_line_proto_code_reason_CR_LF;
 
                 } else {

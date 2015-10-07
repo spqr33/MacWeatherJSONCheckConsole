@@ -37,7 +37,7 @@ shared_ptr<LobKo::TaskHolder> LobKo::TaskHolderBuilder::build(ifstream& file_in)
         if ( file_in.bad() || file_in.fail() ) {
             break;
         } else if ( file_in.eof() ) {
-            flag == false;
+            flag = false;
         }
         std::istringstream istream(str);
 

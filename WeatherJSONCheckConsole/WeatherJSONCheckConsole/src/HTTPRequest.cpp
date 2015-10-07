@@ -37,6 +37,7 @@ const string& LobKo::HTTPRequest::getResultString() const {
         resultString_ = requestType_.getRequestType();
         resultString_ += " ";
         resultString_ += spURL_.get()->getPath();
+        resultString_ += spURL_->getQueryStr().getQuery();
         resultString_ += " ";
         resultString_ += requestProto_.getRequestProto();
         resultString_ += SymbolCode::CR;
