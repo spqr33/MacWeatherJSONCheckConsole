@@ -13,14 +13,15 @@
 #include "Logger.h"
 #include <vector>
 #include "picojson.h"
+#include "QueuesMaster.h"
+#include <memory>
 
 namespace LobKo {
     class JSONParseLog : public Action {
     public:
-        explicit JSONParseLog(Logger& log);
+        JSONParseLog (std::shared_ptr<Logger>& log, QueuesMaster& qmaster);
         
         virtual result takeData(const char* const startBuf, const char* const endBuf, std::uint64_t totalDataSize);
-        
     private:
         JSONParseLog(const JSONParseLog& orig) = delete;
         JSONParseLog& operator=(const JSONParseLog& rhs) = delete;
@@ -28,12 +29,12 @@ namespace LobKo {
         void JSONParseAndFill(picojson::value::object &obj, std::string indent);
         void JSONParseAndFill(picojson::value::array &obj, std::string indent);
      
-        //std::uint64_t       alreadyBytesSaved_;
-        std::vector<char>   buffer_;
-        Logger              log_;
+        std::vector<char>           buffer_;
+        std::weak_ptr<Logger>       wpLog_;
+        QueuesMaster&               qmaster_;
+        
+        void log(std::string& line);
     };
- 
-    
 }// namespace
 
 #endif /* defined(__WeatherJSONCheckConsole__JSONParseLog__) */

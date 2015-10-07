@@ -16,9 +16,8 @@
 
 
 namespace LobKo {
-    Cache::Cache(Logger& log) :
-    cacheDirName_("cache"),
-    logger_(log)
+    Cache::Cache() :
+    cacheDirName_("cache")
     {
         init();
     }
@@ -28,7 +27,7 @@ namespace LobKo {
     
         if (absPath == NULL) {
             std::string err("Can't obtain current directory");
-            logger_.write_line(err);
+            log(err);
             exit(-1);
         }
   
@@ -36,7 +35,7 @@ namespace LobKo {
         status = mkdir(cacheDirName_.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
         if ( status < 0 ) {
             std::string err("Can't create the cache directory");
-            logger_.write_line(err);
+            log(err);
             exit(-1);
         }
         cachePath_ = absPath;
@@ -114,5 +113,19 @@ namespace LobKo {
 
         }
         return std::pair<std::shared_ptr<JumboBuff>, std::shared_ptr<CacheObject>>(spJumbo, spCacheObj);
+    }
+    
+    Cache& Cache::instance() {
+        static Cache single;
+        
+        return single;
+    }
+    
+    void Cache::setLogger(std::shared_ptr<Logger>& logger) const {
+        logger_ = logger;
+    }
+    
+    void Cache::log(std::string& line) const {
+        logger_->write_line(line);
     }
 }

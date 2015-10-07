@@ -17,7 +17,6 @@
 #include "Logger.h"
 #include "JumboBuff.h"
 
-
 namespace LobKo {
 
     struct CacheObject;
@@ -26,26 +25,32 @@ namespace LobKo {
     public:
         typedef  std::string UrlString;
         
-        explicit Cache(Logger& log);
+        static Cache& instance();
         virtual ~Cache();
         
         void add(UrlString& url, const char* start, const char* end, const std::string& name);
         bool check(const UrlString& url) const ;
         
         std::pair< std::shared_ptr<JumboBuff>, std::shared_ptr<CacheObject> > get(const UrlString&);
+        void setLogger(std::shared_ptr<Logger>&) const;
         
     private:
         std::map <UrlString, std::shared_ptr<CacheObject> > map_;
         std::string                                         cachePath_;
         std::string                                         cacheDirName_;
-        Logger                                              logger_;
+        mutable std::shared_ptr<Logger>                     logger_;
         
-        virtual void init();
+        void init();
         void remove(const UrlString& url);
         
         Cache(const Cache& orig) = delete;
         const Cache& operator=(const Cache& rhs) = delete;
+        
+        void log(std::string& line) const;
+        
+        explicit Cache();
     };
+    ///////////////////////
     struct CacheObject {
         CacheObject(const std::string& path, const std::string& name, uint32_t size) :
         fullPath_(path), name_(name), size_(size){}
@@ -54,8 +59,6 @@ namespace LobKo {
         const std::string name_;
         const long    size_;
     };
-
 }
-
 
 #endif /* defined(__WeatherJSONCheckConsole__Cache__) */

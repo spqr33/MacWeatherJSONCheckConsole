@@ -13,7 +13,6 @@
 #include <utility> //pair
 #include <memory>
 #include <iostream>
-//#include <bits/shared_ptr_base.h>
 #include "HTTPRequest.h"
 #include "QueuesMaster.h"
 #include "TaskHolder.h"
@@ -23,6 +22,7 @@
 #include "Logger.h"
 #include "JSONParseLog.h"
 #include "Cache.h"
+#include "APIConst.h"
 
 using namespace std;
 using namespace LobKo;
@@ -32,29 +32,20 @@ using namespace LobKo;
  * 
  */
 int main(int argc, char** argv) {
-    ////////////////////////////////////
+////////////////////////////////////
     const int simultaneous_download_max = 1;
 
-    string logName("log.txt");
-    Logger log(logName);
-    QueuesMaster qmaster;
-    Cache        cache(log);
-
-
-    HTTPRequestErrorsQueue& eq = *qmaster.reqErrorsQ().get();
-    cerr << eq << std::endl;
-
+    string                  logName("log.txt");
+    std::shared_ptr<Logger> spLog = std::make_shared<Logger>(logName);
+    QueuesMaster            qmaster;
+    Cache&                  cache = Cache::instance();
+    cache.setLogger(spLog);
+    const APIConst&         invariant = APIConst::instance();
 //////////////
-//API const
-    const string hostname = "api.openweathermap.org";
-    const string urlRoot = "http://api.openweathermap.org/";
-    const string weatherQuery = "data/2.5/weather/?q=";
-    const string weatherImgQuery = "img/w/";
-    const string imgExtention = ".png";
-
- 
-    //
-    string cityName;
+    string          cityName;
+    std::string     urlRoot         = invariant.urlRoot;
+    std::string     weatherQuery    = invariant.weatherQuery;
+    
     while (true) {
         cout << "Please, enter a city name, or type exit" << endl;
         cin >> cityName;
@@ -67,7 +58,7 @@ int main(int argc, char** argv) {
                                                         HTTPProto(HTTPProto::HTTP1_0))
                                         );
         std::cout << spWeatherUrl->originalRequestString();
-        request->setAction(std::make_shared<JSONParseLog>(log));
+        request->setAction(std::make_shared<JSONParseLog>(spLog, qmaster));
        
         qmaster.setHTTPRequest(request);
         qmaster.process(simultaneous_download_max);
