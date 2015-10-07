@@ -22,6 +22,7 @@
 #include <stdlib.h> // atoi
 #include "Logger.h"
 #include "JSONParseLog.h"
+#include "Cache.h"
 
 using namespace std;
 using namespace LobKo;
@@ -37,6 +38,7 @@ int main(int argc, char** argv) {
     string logName("log.txt");
     Logger log(logName);
     QueuesMaster qmaster;
+    Cache        cache(log);
 
 
     HTTPRequestErrorsQueue& eq = *qmaster.reqErrorsQ().get();
