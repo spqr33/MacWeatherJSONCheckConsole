@@ -53,4 +53,9 @@ namespace LobKo {
         std::lock_guard<std::mutex> lock(spFile_->mutexFile_);
         spFile_->file_ << strTime << " || " << line << std::endl;
     }
+    void write_line(const std::string& line) {
+        write_line(const_cast<std::string&>(line));
+    }
+    
+    
 } //end namespace

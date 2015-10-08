@@ -33,6 +33,7 @@ namespace LobKo{
         explicit Logger(std::string& f);
         ~Logger();
         void write_line(std::string& line);
+        void write_line(const std::string& line);
     private:
         static std::map<std::string, std::shared_ptr<File> >    files_;
         static std::mutex                                       mutexFiles_;
