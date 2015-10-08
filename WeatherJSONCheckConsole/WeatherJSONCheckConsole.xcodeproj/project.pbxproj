@@ -1,0 +1,399 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		844072421BC2E8AD00576761 /* Action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8440721B1BC2E8AD00576761 /* Action.cpp */; };
+		844072431BC2E8AD00576761 /* AHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8440721D1BC2E8AD00576761 /* AHeader.cpp */; };
+		844072441BC2E8AD00576761 /* Content_Length.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8440721F1BC2E8AD00576761 /* Content_Length.cpp */; };
+		844072451BC2E8AD00576761 /* HeadersHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844072211BC2E8AD00576761 /* HeadersHolder.cpp */; };
+		844072461BC2E8AD00576761 /* HostHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844072231BC2E8AD00576761 /* HostHeader.cpp */; };
+		844072471BC2E8AD00576761 /* HTTPRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844072251BC2E8AD00576761 /* HTTPRequest.cpp */; };
+		844072481BC2E8AD00576761 /* HTTPRequestErrorsQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844072271BC2E8AD00576761 /* HTTPRequestErrorsQueue.cpp */; };
+		844072491BC2E8AD00576761 /* HTTPRequestQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844072291BC2E8AD00576761 /* HTTPRequestQueue.cpp */; };
+		8440724A1BC2E8AD00576761 /* HTTPResponse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8440722B1BC2E8AD00576761 /* HTTPResponse.cpp */; };
+		8440724B1BC2E8AD00576761 /* IPAdress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8440722D1BC2E8AD00576761 /* IPAdress.cpp */; };
+		8440724C1BC2E8AD00576761 /* JumboBuff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8440722F1BC2E8AD00576761 /* JumboBuff.cpp */; };
+		8440724D1BC2E8AD00576761 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844072311BC2E8AD00576761 /* main.cpp */; };
+		8440724E1BC2E8AD00576761 /* QueuesMaster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844072321BC2E8AD00576761 /* QueuesMaster.cpp */; };
+		8440724F1BC2E8AD00576761 /* RecvBysocketQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844072341BC2E8AD00576761 /* RecvBysocketQueue.cpp */; };
+		844072501BC2E8AD00576761 /* SaveFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844072361BC2E8AD00576761 /* SaveFile.cpp */; };
+		844072511BC2E8AD00576761 /* SendBySocketQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844072381BC2E8AD00576761 /* SendBySocketQueue.cpp */; };
+		844072521BC2E8AD00576761 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8440723A1BC2E8AD00576761 /* Task.cpp */; };
+		844072531BC2E8AD00576761 /* TaskHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8440723C1BC2E8AD00576761 /* TaskHolder.cpp */; };
+		844072541BC2E8AD00576761 /* URL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8440723E1BC2E8AD00576761 /* URL.cpp */; };
+		844072551BC2E8AD00576761 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 844072401BC2E8AD00576761 /* utils.cpp */; };
+		84EC2A891BC3A77300BA7B1A /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84EC2A881BC3A77300BA7B1A /* Logger.cpp */; };
+		84EC2A8D1BC3B32900BA7B1A /* JSONParseLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84EC2A8B1BC3B32900BA7B1A /* JSONParseLog.cpp */; };
+		84EC62371BC54DAA006082B4 /* Cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84EC62351BC54DAA006082B4 /* Cache.cpp */; };
+		84EC623A1BC5BC76006082B4 /* APIConst.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84EC62381BC5BC76006082B4 /* APIConst.cpp */; };
+		84EC623D1BC664E7006082B4 /* SaveFileAndCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84EC623B1BC664E7006082B4 /* SaveFileAndCache.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		844071F91BC2D4F700576761 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		844071FB1BC2D4F700576761 /* WeatherJSONCheckConsole */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = WeatherJSONCheckConsole; sourceTree = BUILT_PRODUCTS_DIR; };
+		8440721B1BC2E8AD00576761 /* Action.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Action.cpp; path = src/Action.cpp; sourceTree = "<group>"; };
+		8440721C1BC2E8AD00576761 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Action.h; path = src/Action.h; sourceTree = "<group>"; };
+		8440721D1BC2E8AD00576761 /* AHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AHeader.cpp; path = src/AHeader.cpp; sourceTree = "<group>"; };
+		8440721E1BC2E8AD00576761 /* AHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AHeader.h; path = src/AHeader.h; sourceTree = "<group>"; };
+		8440721F1BC2E8AD00576761 /* Content_Length.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Content_Length.cpp; path = src/Content_Length.cpp; sourceTree = "<group>"; };
+		844072201BC2E8AD00576761 /* Content_Length.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Content_Length.h; path = src/Content_Length.h; sourceTree = "<group>"; };
+		844072211BC2E8AD00576761 /* HeadersHolder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeadersHolder.cpp; path = src/HeadersHolder.cpp; sourceTree = "<group>"; };
+		844072221BC2E8AD00576761 /* HeadersHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadersHolder.h; path = src/HeadersHolder.h; sourceTree = "<group>"; };
+		844072231BC2E8AD00576761 /* HostHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HostHeader.cpp; path = src/HostHeader.cpp; sourceTree = "<group>"; };
+		844072241BC2E8AD00576761 /* HostHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HostHeader.h; path = src/HostHeader.h; sourceTree = "<group>"; };
+		844072251BC2E8AD00576761 /* HTTPRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPRequest.cpp; path = src/HTTPRequest.cpp; sourceTree = "<group>"; };
+		844072261BC2E8AD00576761 /* HTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequest.h; path = src/HTTPRequest.h; sourceTree = "<group>"; };
+		844072271BC2E8AD00576761 /* HTTPRequestErrorsQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPRequestErrorsQueue.cpp; path = src/HTTPRequestErrorsQueue.cpp; sourceTree = "<group>"; };
+		844072281BC2E8AD00576761 /* HTTPRequestErrorsQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequestErrorsQueue.h; path = src/HTTPRequestErrorsQueue.h; sourceTree = "<group>"; };
+		844072291BC2E8AD00576761 /* HTTPRequestQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPRequestQueue.cpp; path = src/HTTPRequestQueue.cpp; sourceTree = "<group>"; };
+		8440722A1BC2E8AD00576761 /* HTTPRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequestQueue.h; path = src/HTTPRequestQueue.h; sourceTree = "<group>"; };
+		8440722B1BC2E8AD00576761 /* HTTPResponse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HTTPResponse.cpp; path = src/HTTPResponse.cpp; sourceTree = "<group>"; };
+		8440722C1BC2E8AD00576761 /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPResponse.h; path = src/HTTPResponse.h; sourceTree = "<group>"; };
+		8440722D1BC2E8AD00576761 /* IPAdress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IPAdress.cpp; path = src/IPAdress.cpp; sourceTree = "<group>"; };
+		8440722E1BC2E8AD00576761 /* IPAdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPAdress.h; path = src/IPAdress.h; sourceTree = "<group>"; };
+		8440722F1BC2E8AD00576761 /* JumboBuff.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JumboBuff.cpp; path = src/JumboBuff.cpp; sourceTree = "<group>"; };
+		844072301BC2E8AD00576761 /* JumboBuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JumboBuff.h; path = src/JumboBuff.h; sourceTree = "<group>"; };
+		844072311BC2E8AD00576761 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
+		844072321BC2E8AD00576761 /* QueuesMaster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = QueuesMaster.cpp; path = src/QueuesMaster.cpp; sourceTree = "<group>"; };
+		844072331BC2E8AD00576761 /* QueuesMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QueuesMaster.h; path = src/QueuesMaster.h; sourceTree = "<group>"; };
+		844072341BC2E8AD00576761 /* RecvBysocketQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RecvBysocketQueue.cpp; path = src/RecvBysocketQueue.cpp; sourceTree = "<group>"; };
+		844072351BC2E8AD00576761 /* RecvBysocketQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecvBysocketQueue.h; path = src/RecvBysocketQueue.h; sourceTree = "<group>"; };
+		844072361BC2E8AD00576761 /* SaveFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SaveFile.cpp; path = src/SaveFile.cpp; sourceTree = "<group>"; };
+		844072371BC2E8AD00576761 /* SaveFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaveFile.h; path = src/SaveFile.h; sourceTree = "<group>"; };
+		844072381BC2E8AD00576761 /* SendBySocketQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SendBySocketQueue.cpp; path = src/SendBySocketQueue.cpp; sourceTree = "<group>"; };
+		844072391BC2E8AD00576761 /* SendBySocketQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SendBySocketQueue.h; path = src/SendBySocketQueue.h; sourceTree = "<group>"; };
+		8440723A1BC2E8AD00576761 /* Task.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Task.cpp; path = src/Task.cpp; sourceTree = "<group>"; };
+		8440723B1BC2E8AD00576761 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = src/Task.h; sourceTree = "<group>"; };
+		8440723C1BC2E8AD00576761 /* TaskHolder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TaskHolder.cpp; path = src/TaskHolder.cpp; sourceTree = "<group>"; };
+		8440723D1BC2E8AD00576761 /* TaskHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskHolder.h; path = src/TaskHolder.h; sourceTree = "<group>"; };
+		8440723E1BC2E8AD00576761 /* URL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = URL.cpp; path = src/URL.cpp; sourceTree = "<group>"; };
+		8440723F1BC2E8AD00576761 /* URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = URL.h; path = src/URL.h; sourceTree = "<group>"; };
+		844072401BC2E8AD00576761 /* utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = utils.cpp; path = src/utils.cpp; sourceTree = "<group>"; };
+		844072411BC2E8AD00576761 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utils.h; path = src/utils.h; sourceTree = "<group>"; };
+		84EC2A881BC3A77300BA7B1A /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Logger.cpp; path = src/Logger.cpp; sourceTree = "<group>"; };
+		84EC2A8A1BC3A7A900BA7B1A /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = src/Logger.h; sourceTree = "<group>"; };
+		84EC2A8B1BC3B32900BA7B1A /* JSONParseLog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JSONParseLog.cpp; path = src/JSONParseLog.cpp; sourceTree = "<group>"; };
+		84EC2A8C1BC3B32900BA7B1A /* JSONParseLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONParseLog.h; path = src/JSONParseLog.h; sourceTree = "<group>"; };
+		84EC62351BC54DAA006082B4 /* Cache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Cache.cpp; path = src/Cache.cpp; sourceTree = "<group>"; };
+		84EC62361BC54DAA006082B4 /* Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = Cache.h; path = src/Cache.h; sourceTree = "<group>"; };
+		84EC62381BC5BC76006082B4 /* APIConst.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = APIConst.cpp; path = src/APIConst.cpp; sourceTree = "<group>"; };
+		84EC62391BC5BC76006082B4 /* APIConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIConst.h; path = src/APIConst.h; sourceTree = "<group>"; };
+		84EC623B1BC664E7006082B4 /* SaveFileAndCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SaveFileAndCache.cpp; path = src/SaveFileAndCache.cpp; sourceTree = "<group>"; };
+		84EC623C1BC664E7006082B4 /* SaveFileAndCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SaveFileAndCache.h; path = src/SaveFileAndCache.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		844071F81BC2D4F700576761 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		844071F21BC2D4F700576761 = {
+			isa = PBXGroup;
+			children = (
+				844071FD1BC2D4F700576761 /* WeatherJSONCheckConsole */,
+				844071FC1BC2D4F700576761 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		844071FC1BC2D4F700576761 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				844071FB1BC2D4F700576761 /* WeatherJSONCheckConsole */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		844071FD1BC2D4F700576761 /* WeatherJSONCheckConsole */ = {
+			isa = PBXGroup;
+			children = (
+				84EC62381BC5BC76006082B4 /* APIConst.cpp */,
+				84EC62391BC5BC76006082B4 /* APIConst.h */,
+				84EC62351BC54DAA006082B4 /* Cache.cpp */,
+				84EC62361BC54DAA006082B4 /* Cache.h */,
+				84EC2A8A1BC3A7A900BA7B1A /* Logger.h */,
+				84EC2A881BC3A77300BA7B1A /* Logger.cpp */,
+				84EC2A8B1BC3B32900BA7B1A /* JSONParseLog.cpp */,
+				84EC2A8C1BC3B32900BA7B1A /* JSONParseLog.h */,
+				84EC623B1BC664E7006082B4 /* SaveFileAndCache.cpp */,
+				84EC623C1BC664E7006082B4 /* SaveFileAndCache.h */,
+				8440721B1BC2E8AD00576761 /* Action.cpp */,
+				8440721C1BC2E8AD00576761 /* Action.h */,
+				8440721D1BC2E8AD00576761 /* AHeader.cpp */,
+				8440721E1BC2E8AD00576761 /* AHeader.h */,
+				8440721F1BC2E8AD00576761 /* Content_Length.cpp */,
+				844072201BC2E8AD00576761 /* Content_Length.h */,
+				844072211BC2E8AD00576761 /* HeadersHolder.cpp */,
+				844072221BC2E8AD00576761 /* HeadersHolder.h */,
+				844072231BC2E8AD00576761 /* HostHeader.cpp */,
+				844072241BC2E8AD00576761 /* HostHeader.h */,
+				844072251BC2E8AD00576761 /* HTTPRequest.cpp */,
+				844072261BC2E8AD00576761 /* HTTPRequest.h */,
+				844072271BC2E8AD00576761 /* HTTPRequestErrorsQueue.cpp */,
+				844072281BC2E8AD00576761 /* HTTPRequestErrorsQueue.h */,
+				844072291BC2E8AD00576761 /* HTTPRequestQueue.cpp */,
+				8440722A1BC2E8AD00576761 /* HTTPRequestQueue.h */,
+				8440722B1BC2E8AD00576761 /* HTTPResponse.cpp */,
+				8440722C1BC2E8AD00576761 /* HTTPResponse.h */,
+				8440722D1BC2E8AD00576761 /* IPAdress.cpp */,
+				8440722E1BC2E8AD00576761 /* IPAdress.h */,
+				8440722F1BC2E8AD00576761 /* JumboBuff.cpp */,
+				844072301BC2E8AD00576761 /* JumboBuff.h */,
+				844072311BC2E8AD00576761 /* main.cpp */,
+				844072321BC2E8AD00576761 /* QueuesMaster.cpp */,
+				844072331BC2E8AD00576761 /* QueuesMaster.h */,
+				844072341BC2E8AD00576761 /* RecvBysocketQueue.cpp */,
+				844072351BC2E8AD00576761 /* RecvBysocketQueue.h */,
+				844072361BC2E8AD00576761 /* SaveFile.cpp */,
+				844072371BC2E8AD00576761 /* SaveFile.h */,
+				844072381BC2E8AD00576761 /* SendBySocketQueue.cpp */,
+				844072391BC2E8AD00576761 /* SendBySocketQueue.h */,
+				8440723A1BC2E8AD00576761 /* Task.cpp */,
+				8440723B1BC2E8AD00576761 /* Task.h */,
+				8440723C1BC2E8AD00576761 /* TaskHolder.cpp */,
+				8440723D1BC2E8AD00576761 /* TaskHolder.h */,
+				8440723E1BC2E8AD00576761 /* URL.cpp */,
+				8440723F1BC2E8AD00576761 /* URL.h */,
+				844072401BC2E8AD00576761 /* utils.cpp */,
+				844072411BC2E8AD00576761 /* utils.h */,
+			);
+			path = WeatherJSONCheckConsole;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		844071FA1BC2D4F700576761 /* WeatherJSONCheckConsole */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 844072021BC2D4F700576761 /* Build configuration list for PBXNativeTarget "WeatherJSONCheckConsole" */;
+			buildPhases = (
+				844071F71BC2D4F700576761 /* Sources */,
+				844071F81BC2D4F700576761 /* Frameworks */,
+				844071F91BC2D4F700576761 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeatherJSONCheckConsole;
+			productName = WeatherJSONCheckConsole;
+			productReference = 844071FB1BC2D4F700576761 /* WeatherJSONCheckConsole */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		844071F31BC2D4F700576761 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = weather;
+				TargetAttributes = {
+					844071FA1BC2D4F700576761 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = 844071F61BC2D4F700576761 /* Build configuration list for PBXProject "WeatherJSONCheckConsole" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 844071F21BC2D4F700576761;
+			productRefGroup = 844071FC1BC2D4F700576761 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				844071FA1BC2D4F700576761 /* WeatherJSONCheckConsole */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		844071F71BC2D4F700576761 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844072451BC2E8AD00576761 /* HeadersHolder.cpp in Sources */,
+				84EC623D1BC664E7006082B4 /* SaveFileAndCache.cpp in Sources */,
+				84EC2A891BC3A77300BA7B1A /* Logger.cpp in Sources */,
+				84EC2A8D1BC3B32900BA7B1A /* JSONParseLog.cpp in Sources */,
+				844072501BC2E8AD00576761 /* SaveFile.cpp in Sources */,
+				8440724F1BC2E8AD00576761 /* RecvBysocketQueue.cpp in Sources */,
+				844072481BC2E8AD00576761 /* HTTPRequestErrorsQueue.cpp in Sources */,
+				8440724D1BC2E8AD00576761 /* main.cpp in Sources */,
+				844072431BC2E8AD00576761 /* AHeader.cpp in Sources */,
+				844072491BC2E8AD00576761 /* HTTPRequestQueue.cpp in Sources */,
+				844072521BC2E8AD00576761 /* Task.cpp in Sources */,
+				844072421BC2E8AD00576761 /* Action.cpp in Sources */,
+				8440724C1BC2E8AD00576761 /* JumboBuff.cpp in Sources */,
+				844072511BC2E8AD00576761 /* SendBySocketQueue.cpp in Sources */,
+				844072551BC2E8AD00576761 /* utils.cpp in Sources */,
+				844072541BC2E8AD00576761 /* URL.cpp in Sources */,
+				844072471BC2E8AD00576761 /* HTTPRequest.cpp in Sources */,
+				84EC62371BC54DAA006082B4 /* Cache.cpp in Sources */,
+				8440724B1BC2E8AD00576761 /* IPAdress.cpp in Sources */,
+				8440724E1BC2E8AD00576761 /* QueuesMaster.cpp in Sources */,
+				844072531BC2E8AD00576761 /* TaskHolder.cpp in Sources */,
+				844072441BC2E8AD00576761 /* Content_Length.cpp in Sources */,
+				8440724A1BC2E8AD00576761 /* HTTPResponse.cpp in Sources */,
+				84EC623A1BC5BC76006082B4 /* APIConst.cpp in Sources */,
+				844072461BC2E8AD00576761 /* HostHeader.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		844072001BC2D4F700576761 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		844072011BC2D4F700576761 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		844072031BC2D4F700576761 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				DEAD_CODE_STRIPPING = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		844072041BC2D4F700576761 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				DEAD_CODE_STRIPPING = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		844071F61BC2D4F700576761 /* Build configuration list for PBXProject "WeatherJSONCheckConsole" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844072001BC2D4F700576761 /* Debug */,
+				844072011BC2D4F700576761 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		844072021BC2D4F700576761 /* Build configuration list for PBXNativeTarget "WeatherJSONCheckConsole" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844072031BC2D4F700576761 /* Debug */,
+				844072041BC2D4F700576761 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 844071F31BC2D4F700576761 /* Project object */;
+}
