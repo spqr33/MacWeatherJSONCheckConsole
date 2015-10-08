@@ -152,14 +152,16 @@ void LobKo::RecvBySocketQueue::process() {
 #endif                         
                         if ( spHTTPResp->get_status_code() == "200" /*&& spHTTPResp->spContent_Length.use_count() != 0 */) {
                             
-                            std::cout << "We are here\n";
+                       
+                            uint32_t size = (spHTTPResp->spContent_Length.use_count() == 0) ? 0 :
+                            spHTTPResp->spContent_Length->getValueAsDecimalNumber();
                             
                             shared_ptr<Action> spAction = spHTTPResp->getLinkedHTTPRequest()->getAction();
                             Action::result action_res;
 
                             action_res = spAction->takeData(spHTTPResp->getJumboBuff()->currentPos_,
-                                                            spHTTPResp->getJumboBuff()->watermark_, 0);
-                                   // spHTTPResp->spContent_Length->getValueAsDecimalNumber());
+                                                            spHTTPResp->getJumboBuff()->watermark_, size);
+
 
                             if ( action_res == Action::result::ERROR_OCCURED ) {
 #ifndef NDEBUG

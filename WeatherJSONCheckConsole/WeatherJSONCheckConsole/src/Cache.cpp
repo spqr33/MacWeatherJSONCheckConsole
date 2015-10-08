@@ -23,7 +23,7 @@ namespace LobKo {
     }
     
     void Cache::init() {
-        char* absPath = getcwd(NULL, 1024);
+        char* absPath = getcwd(NULL, 2048);
     
         if (absPath == NULL) {
             std::string err("Can't obtain current directory");
@@ -56,24 +56,12 @@ namespace LobKo {
         return (iter == map_.end())? false : true;
     }
     
-    void Cache::add(const UrlString& url, const char* start, const char* end, const std::string& name){
-        remove(url);
-        
-        long fileSize = end - start;
-        std::string fullPath = cachePath_ + name;
-        {
-            std::ofstream f(fullPath.c_str(), std::ofstream::binary| std::ofstream::out);
-            if (f.is_open()) {
-                f.write(start, fileSize);
-                
-                if ( !f.good() ) {
-                    return;
-                }
-            }
-        }
+    void Cache::add(const UrlString& url, long fileSize, const std::string& name){
+        std::string fullPath = getAbsCachePath() + name;
         
         auto spCacheObject = std::make_shared<CacheObject>(fullPath, name, fileSize);
         map_[url] = spCacheObject;
+        logger_->write_line(name + "was cached.");
     }
     
     void Cache::remove(const UrlString& url) {

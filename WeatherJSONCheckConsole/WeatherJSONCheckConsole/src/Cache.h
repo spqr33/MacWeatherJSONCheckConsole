@@ -28,8 +28,8 @@ namespace LobKo {
         static Cache& instance();
         virtual ~Cache();
         
-        void add(const UrlString& url, const char* start, const char* end, const std::string& name);
-        bool check(const UrlString& url) const ;
+        void    add(const UrlString& url, long fileSize, const std::string& name);
+        bool    check(const UrlString& url) const ;
         
         std::pair< std::shared_ptr<JumboBuff>, std::shared_ptr<CacheObject> >   get(const UrlString&);
         std::shared_ptr<CacheObject>                                            getInfo(const UrlString&);

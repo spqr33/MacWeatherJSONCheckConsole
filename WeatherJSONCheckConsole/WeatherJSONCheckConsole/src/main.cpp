@@ -32,7 +32,7 @@ using namespace LobKo;
  * 
  */
 int main(int argc, char** argv) {
-////////////////////////////////////
+////////////////
     const int simultaneous_download_max = 1;
 
     string                  logName("log.txt");
@@ -62,9 +62,9 @@ int main(int argc, char** argv) {
        
         qmaster.setHTTPRequest(request);
         qmaster.process(simultaneous_download_max);
+        qmaster.process(simultaneous_download_max);
         
-        cout << "Processing finished" << endl;
-        cout << "___________________" << endl;
+        spLog->write_line("______________________________________");
     }
     
     return EXIT_SUCCESS;

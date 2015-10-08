@@ -90,7 +90,7 @@ int LobKo::SendBySocketQueue::writeToSocket(int socketFD, const char* begin, siz
     ssize_t writedBytes = 0;
     
     std::string tmp(begin, n);
-    std::cout << "Write to socket this: " << tmp <<"|\n";
+    std::cout << "Writing into socket this: " << tmp;
 
     writedBytes = write(socketFD, begin, n);
 

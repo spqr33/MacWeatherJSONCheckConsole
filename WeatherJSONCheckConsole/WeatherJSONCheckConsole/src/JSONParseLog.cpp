@@ -66,27 +66,28 @@ namespace LobKo{
                 //waiting weather.icon
                 if (i->first == "icon") {
                     std::shared_ptr<URL>    spURL = APIConst::getURL(APIConst::Icon(i->second.to_str()));
+                    std::string logMessage = spURL->originalRequestString();
+                    log(logMessage);
+                    
                     Cache&                  cache = Cache::instance();
-                    if (cache.check(spURL->originalRequestString()) == true){
+                    //log("Cache instance was created");
+                    if (cache.check(spURL->originalRequestString()) != true){
                         //URL was not cached
                         std::shared_ptr<HTTPRequest> request(new HTTPRequest(HTTPRequestType(HTTPRequestType::GET),
                                                                         spURL,
                                                                         HTTPProto(HTTPProto::HTTP1_0))
                                                         );
-                        log(spURL->originalRequestString());
+                        //log(spURL->originalRequestString());
                         
                         request->setAction(std::make_shared<SaveFileAndCache>(                                                                            i->second.to_str()+APIConst::instance().imgExtention,
                                            spURL)
                                            );
-                        
                         qmaster_.setHTTPRequest(request);
-                        qmaster_.process(1);
-                       
                     } else {
                         //URL was cached
                         std::string fullPath =  cache.getInfo(spURL->originalRequestString())->fullPath_;
                         
-                        std::string logMessage = "URL " + spURL->originalRequestString() + " was cached, ";
+                        std::string logMessage = "URL " + spURL->originalRequestString() + " was already cached, ";
                         logMessage += "Please look at " + fullPath + " file";
                         log(logMessage);
                     }
