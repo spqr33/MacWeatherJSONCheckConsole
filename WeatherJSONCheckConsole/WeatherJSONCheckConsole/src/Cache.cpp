@@ -41,6 +41,7 @@ namespace LobKo {
         cachePath_ = absPath;
         cachePath_ += "/";
         cachePath_ += cacheDirName_;
+        cachePath_ += "/";
         
         free(absPath);
     }
@@ -55,7 +56,7 @@ namespace LobKo {
         return (iter == map_.end())? false : true;
     }
     
-    void Cache::add(UrlString& url, const char* start, const char* end, const std::string& name){
+    void Cache::add(const UrlString& url, const char* start, const char* end, const std::string& name){
         remove(url);
         
         long fileSize = end - start;
@@ -127,5 +128,15 @@ namespace LobKo {
     
     void Cache::log(std::string& line) const {
         logger_->write_line(line);
+    }
+    
+    std::shared_ptr<CacheObject> Cache::getInfo(const UrlString& url) {
+        auto iter = map_.find(url);
+        std::shared_ptr<CacheObject> spCacheObj;
+        
+        if ( iter != map_.end() ) {
+            spCacheObj = iter->second;
+        }
+        return spCacheObj;
     }
 }

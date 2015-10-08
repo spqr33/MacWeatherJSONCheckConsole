@@ -33,7 +33,7 @@ namespace LobKo {
         std::weak_ptr<Logger>       wpLog_;
         QueuesMaster&               qmaster_;
         
-        void log(std::string& line);
+        void log(const std::string& line);
     };
 }// namespace
 

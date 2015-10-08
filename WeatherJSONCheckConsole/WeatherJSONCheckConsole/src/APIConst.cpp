@@ -18,4 +18,15 @@ namespace LobKo {
         
         return self;
     }
+    
+    std::shared_ptr<URL> APIConst::getURL(const Icon& icon) {
+        APIConst&               api = APIConst::instance();
+        std::shared_ptr<URL>    spIcon = std::make_shared<URL>(api.urlRoot +
+                                                               api.weatherImgQuery +
+                                                               icon.name_ +
+                                                               api.imgExtention
+        );
+        
+        return spIcon;
+    }
 }

@@ -57,14 +57,15 @@ int main(int argc, char** argv) {
                                                         spWeatherUrl,
                                                         HTTPProto(HTTPProto::HTTP1_0))
                                         );
-        std::cout << spWeatherUrl->originalRequestString();
+        spLog->write_line(spWeatherUrl->originalRequestString());
         request->setAction(std::make_shared<JSONParseLog>(spLog, qmaster));
        
         qmaster.setHTTPRequest(request);
         qmaster.process(simultaneous_download_max);
         
         cout << "Processing finished" << endl;
-}
+        cout << "___________________" << endl;
+    }
     
     return EXIT_SUCCESS;
 }

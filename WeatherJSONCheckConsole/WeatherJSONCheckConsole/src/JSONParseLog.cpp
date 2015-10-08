@@ -10,7 +10,12 @@
 #include <algorithm>
 #include <iterator>
 #include "picojson.h"
-
+#include <memory>
+#include "APIConst.h"
+#include "Cache.h"
+#include "HTTPRequest.h"
+#include "QueuesMaster.h"
+#include "SaveFileAndCache.h"
 
 namespace LobKo{
     
@@ -58,6 +63,35 @@ namespace LobKo{
                 std::cout << " ]"<< std::endl;
             } else {
                 std::cout << indent << i->first << " : " << i->second.to_str() << std::endl;
+                //waiting weather.icon
+                if (i->first == "icon") {
+                    std::shared_ptr<URL>    spURL = APIConst::getURL(APIConst::Icon(i->second.to_str()));
+                    Cache&                  cache = Cache::instance();
+                    if (cache.check(spURL->originalRequestString()) == true){
+                        //URL was not cached
+                        std::shared_ptr<HTTPRequest> request(new HTTPRequest(HTTPRequestType(HTTPRequestType::GET),
+                                                                        spURL,
+                                                                        HTTPProto(HTTPProto::HTTP1_0))
+                                                        );
+                        log(spURL->originalRequestString());
+                        
+                        request->setAction(std::make_shared<SaveFileAndCache>(                                                                            i->second.to_str()+APIConst::instance().imgExtention,
+                                           spURL)
+                                           );
+                        
+                        qmaster_.setHTTPRequest(request);
+                        qmaster_.process(1);
+                       
+                    } else {
+                        //URL was cached
+                        std::string fullPath =  cache.getInfo(spURL->originalRequestString())->fullPath_;
+                        
+                        std::string logMessage = "URL " + spURL->originalRequestString() + " was cached, ";
+                        logMessage += "Please look at " + fullPath + " file";
+                        log(logMessage);
+                    }
+                }
+                
             }
         }
     }
@@ -76,7 +110,7 @@ namespace LobKo{
         }
     }
     
-    void JSONParseLog::log(std::string& line) {
+    void JSONParseLog::log(const std::string& line) {
         std::shared_ptr<Logger> spLog = wpLog_.lock();
         
         if (spLog.get() != nullptr) {

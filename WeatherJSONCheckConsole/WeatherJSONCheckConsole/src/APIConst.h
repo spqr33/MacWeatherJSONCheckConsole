@@ -10,6 +10,8 @@
 #define __WeatherJSONCheckConsole__APIConst__
 
 #include <string>
+#include <memory>
+#include "URL.h"
 
 namespace LobKo {
     struct APIConst {
@@ -21,9 +23,15 @@ namespace LobKo {
         const std::string weatherImgQuery = "img/w/";
         const std::string imgExtention = ".png";
         
+        struct Icon{
+            Icon(const std::string& name) : name_(name) {};
+            std::string name_;
+        };
+        
+        static std::shared_ptr<URL> getURL(const Icon& icon);
         
     private:
-        APIConst()
+        APIConst();
         APIConst(APIConst& orig);
         APIConst& operator=(APIConst& rhs);
     }; // struct APIConst

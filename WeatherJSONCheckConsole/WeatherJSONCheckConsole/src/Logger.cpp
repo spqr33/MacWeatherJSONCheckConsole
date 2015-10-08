@@ -43,7 +43,7 @@ namespace LobKo {
         }
     }
 
-    void Logger::write_line(std::string& line)
+    void Logger::write_line(std::string line)
     {
         std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
         time_t tt = std::chrono::system_clock::to_time_t ( now );
@@ -53,9 +53,10 @@ namespace LobKo {
         std::lock_guard<std::mutex> lock(spFile_->mutexFile_);
         spFile_->file_ << strTime << " || " << line << std::endl;
     }
-    void write_line(const std::string& line) {
-        write_line(const_cast<std::string&>(line));
-    }
+//    void write_line(std::string& line) {
+//        //std::string& s = const_cast<std::string&>(line);
+//        write_line(line);
+//    }
     
     
 } //end namespace

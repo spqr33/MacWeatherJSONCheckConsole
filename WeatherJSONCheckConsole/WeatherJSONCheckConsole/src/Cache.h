@@ -28,16 +28,17 @@ namespace LobKo {
         static Cache& instance();
         virtual ~Cache();
         
-        void add(UrlString& url, const char* start, const char* end, const std::string& name);
+        void add(const UrlString& url, const char* start, const char* end, const std::string& name);
         bool check(const UrlString& url) const ;
         
-        std::pair< std::shared_ptr<JumboBuff>, std::shared_ptr<CacheObject> > get(const UrlString&);
-        void setLogger(std::shared_ptr<Logger>&) const;
-        
+        std::pair< std::shared_ptr<JumboBuff>, std::shared_ptr<CacheObject> >   get(const UrlString&);
+        std::shared_ptr<CacheObject>                                            getInfo(const UrlString&);
+        void                                                                    setLogger(std::shared_ptr<Logger>&) const;
+        const std::string&                                                      getAbsCachePath() const { return cachePath_; };
     private:
         std::map <UrlString, std::shared_ptr<CacheObject> > map_;
         std::string                                         cachePath_;
-        std::string                                         cacheDirName_;
+        const std::string                                   cacheDirName_;
         mutable std::shared_ptr<Logger>                     logger_;
         
         void init();
@@ -48,7 +49,7 @@ namespace LobKo {
         
         void log(std::string& line) const;
         
-        explicit Cache();
+        Cache();
     };
     ///////////////////////
     struct CacheObject {
