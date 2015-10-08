@@ -8,6 +8,7 @@
 
 #include "Cache.h"
 #include <unistd.h> // getcwd unlink
+#include <stdlib.h> // system
 #include <iostream>
 #include <string>
 #include <sys/types.h>  //mkdir
@@ -24,6 +25,9 @@ namespace LobKo {
     
     void Cache::init() {
         char* absPath = getcwd(NULL, 2048);
+        
+        std::string rmCacheDir = "rm -R ./" + cacheDirName_;
+        system(rmCacheDir.c_str());
     
         if (absPath == NULL) {
             std::string err("Can't obtain current directory");
@@ -61,7 +65,7 @@ namespace LobKo {
         
         auto spCacheObject = std::make_shared<CacheObject>(fullPath, name, fileSize);
         map_[url] = spCacheObject;
-        logger_->write_line(name + "was cached.");
+        logger_->write_line(name + " was cached.");
     }
     
     void Cache::remove(const UrlString& url) {
