@@ -22,6 +22,9 @@ namespace LobKo {
         const std::string weatherQuery = "data/2.5/weather/?q=";
         const std::string weatherImgQuery = "img/w/";
         const std::string imgExtention = ".png";
+        const std::string ampersand = "&";
+        const std::string APPIDkeyEqual = "APPID=";
+        const std::string APPIDvalue = "f8bbb1a030af9c566c1a284abbeb7db8";
         
         struct Icon{
             Icon(const std::string& name) : name_(name) {};

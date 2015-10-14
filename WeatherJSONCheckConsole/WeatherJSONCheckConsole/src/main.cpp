@@ -52,7 +52,13 @@ int main(int argc, char** argv) {
         if ( cityName == "exit" ) {
             break;
         }
-        shared_ptr<URL>         spWeatherUrl(new URL(urlRoot + weatherQuery + cityName));
+        //shared_ptr<URL>         spWeatherUrl(new URL(urlRoot + weatherQuery + cityName));
+        shared_ptr<URL>         spWeatherUrl = make_shared<URL>( urlRoot +
+                                                                weatherQuery +
+                                                                cityName +
+                                                                invariant.ampersand +
+                                                                invariant.APPIDkeyEqual +
+                                                                invariant.APPIDvalue );
         shared_ptr<HTTPRequest> request(new HTTPRequest(HTTPRequestType(HTTPRequestType::GET),
                                                         spWeatherUrl,
                                                         HTTPProto(HTTPProto::HTTP1_0))
